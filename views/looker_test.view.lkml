@@ -13,6 +13,11 @@ view: looker_test {
     type: count
   }
 
+  measure: sale{
+    type: number
+    sql: ${TABLE}.sales ;;
+  }
+
   measure: total_sales{
     type: sum
     sql: ${TABLE}.sales ;;
