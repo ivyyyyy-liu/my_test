@@ -12,4 +12,9 @@ view: looker_test {
   measure: count {
     type: count
   }
+
+  measure: total_sales{
+    type: sum
+    sql: ${TABLE}.sales ;;
+  }
 }
