@@ -13,15 +13,23 @@ persist_with: permission_test_default_datagroup
 
 #explore: looker_test {}
 
-explore: looker_permission {
+
+explore: looker_test {
   view_label: "overall_sales"
   access_filter: {
-    field: email
+    field: looker_permission.email
     user_attribute: email
   }
-  join: looker_test {
-    sql_on: ${looker_permission.store_id} = ${looker_test.store_id};;
-    relationship: many_to_one
+  join: looker_permission {
+    sql_on:${looker_test.store_id}= ${looker_permission.store_id};;
+    relationship: one_to_many
   }
 
-}
+#explore: looker_permission {
+  #view_label: "overall_sales"
+  ## field: email
+    #user_attribute: email
+  }
+#  join: looker_test {
+ #   sql_on: ${looker_permission.store_id} = ${looker_test.store_id};;
+  #  relationship: many_to_one
